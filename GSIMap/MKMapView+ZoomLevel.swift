@@ -8,15 +8,15 @@
 
 import MapKit
 
-private let MERCATOR_OFFSET: Double = 268435456
-private let MERCATOR_RADIUS: Double = 85445659.44705395
+private let kMercatorOffset: Double = 268435456
+private let kMercatorRadius: Double = 85445659.44705395
 
 extension MKMapView {
     var zoomLevel: UInt {
         let mapWidthInPixels = Double(bounds.width * 2)  // 2: retina
         guard mapWidthInPixels > 0 else { return 0 }
         
-        let zoomScale = region.span.longitudeDelta * MERCATOR_RADIUS * Double.pi / (180 * mapWidthInPixels)
+        let zoomScale = region.span.longitudeDelta * kMercatorRadius * Double.pi / (180 * mapWidthInPixels)
         return UInt(round(max(19.0 - log2(zoomScale), 0)) + 1)
     }
     
@@ -35,20 +35,20 @@ extension MKMapView {
     
     // MARK: - private method
     private func longitudeToPixelSpaceX(_ longitude: CLLocationDegrees) -> Double {
-        round(MERCATOR_OFFSET + MERCATOR_RADIUS * longitude * Double.pi / 180)
+        round(kMercatorOffset + kMercatorRadius * longitude * Double.pi / 180)
     }
     
     private func latitudeToPixelSpaceY(_ latitude: CLLocationDegrees) -> Double {
         // latitude = ±90.0 の場合、無限大になる
-        round(MERCATOR_OFFSET - MERCATOR_RADIUS * log((1.0 + sin(latitude * Double.pi / 180)) / (1.0 - sin(latitude * Double.pi / 180))) / 2.0)
+        round(kMercatorOffset - kMercatorRadius * log((1.0 + sin(latitude * Double.pi / 180)) / (1.0 - sin(latitude * Double.pi / 180))) / 2.0)
     }
     
     private func pixelSpaceXToLongitude(_ pixelX: Double) -> CLLocationDegrees {
-        ((round(pixelX) - MERCATOR_OFFSET) / MERCATOR_RADIUS) * 180 / Double.pi
+        ((round(pixelX) - kMercatorOffset) / kMercatorRadius) * 180 / Double.pi
     }
     
     private func pixelSpaceYToLatitude(_ pixelY: Double) -> CLLocationDegrees {
-        (Double.pi / 2.0 - 2.0 * atan(exp((round(pixelY) - MERCATOR_OFFSET) / MERCATOR_RADIUS))) * 180 / Double.pi
+        (Double.pi / 2.0 - 2.0 * atan(exp((round(pixelY) - kMercatorOffset) / kMercatorRadius))) * 180 / Double.pi
     }
     
     private func coordinateSpan(_ mapView: MKMapView, centerCoordinate: CLLocationCoordinate2D, zoomLevel: UInt) -> MKCoordinateSpan {
