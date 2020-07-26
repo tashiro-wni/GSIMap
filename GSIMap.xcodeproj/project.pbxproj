@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		125C4ADF24CD7FD600766D23 /* GSITile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125C4ADE24CD7FD600766D23 /* GSITile.swift */; };
 		1290A8EA24CD63C1002FC977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A8E924CD63C1002FC977 /* AppDelegate.swift */; };
 		1290A8EC24CD63C1002FC977 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A8EB24CD63C1002FC977 /* SceneDelegate.swift */; };
 		1290A8EE24CD63C1002FC977 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A8ED24CD63C1002FC977 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		125C4ADE24CD7FD600766D23 /* GSITile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSITile.swift; sourceTree = "<group>"; };
 		1290A8E624CD63C1002FC977 /* GSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1290A8E924CD63C1002FC977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1290A8EB24CD63C1002FC977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				1290A8ED24CD63C1002FC977 /* ViewController.swift */,
 				1290A91924CD6FE6002FC977 /* Utility.swift */,
 				1290A91B24CD7405002FC977 /* MKMapView+ZoomLevel.swift */,
+				125C4ADE24CD7FD600766D23 /* GSITile.swift */,
 				1290A8EF24CD63C1002FC977 /* Main.storyboard */,
 				1290A8F224CD63C4002FC977 /* Assets.xcassets */,
 				1290A8F424CD63C4002FC977 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 				1290A8EA24CD63C1002FC977 /* AppDelegate.swift in Sources */,
 				1290A91C24CD7405002FC977 /* MKMapView+ZoomLevel.swift in Sources */,
 				1290A8EC24CD63C1002FC977 /* SceneDelegate.swift in Sources */,
+				125C4ADF24CD7FD600766D23 /* GSITile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

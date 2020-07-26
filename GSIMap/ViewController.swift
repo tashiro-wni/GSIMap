@@ -11,7 +11,6 @@ import MapKit
 
 class ViewController: UIViewController {
     private let mapView = MKMapView()
-    private let gsiTileOverlay = MKTileOverlay(urlTemplate: "https://cyberjapandata.gsi.go.jp/xyz/relief/{z}/{x}/{y}.png")
 
     private let buttonSize: CGFloat = 40
     private let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
@@ -41,7 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
-        mapView.addOverlay(gsiTileOverlay, level: .aboveLabels)
+        mapView.addOverlay(GSITile.ortho.tileOverlay, level: .aboveLabels)
         view.addSubview(mapView)
         
         view.addSubview(zoomInButton)
@@ -55,22 +54,16 @@ class ViewController: UIViewController {
         
         let bottom = view.bounds.maxY - view.safeAreaInsets.bottom
         let right = view.bounds.maxX - view.safeAreaInsets.right
-        zoomOutButton.frame = CGRect(x: right - 50, y: bottom - 80,
-                                     width: buttonSize, height: buttonSize)
-        zoomInButton.frame  = CGRect(x: right - 50, y: zoomOutButton.frame.minY - 50,
-                                     width: buttonSize, height: buttonSize)
+        zoomOutButton.frame = CGRect(x: right - 50, y: bottom - 80, width: buttonSize, height: buttonSize)
+        zoomInButton.frame  = CGRect(x: right - 50, y: zoomOutButton.frame.minY - 50, width: buttonSize, height: buttonSize)
     }
     
     @IBAction private func zoomInAction(_ sender: UIButton) {
-        print(#function)
-        let currentZoom = mapView.zoomLevel
-        mapView.setCenter(mapView.centerCoordinate, zoomLevel: currentZoom + 1, animated: false)
+        mapView.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel + 1, animated: true)
     }
     
     @IBAction private func zoomOutAction(_ sender: UIButton) {
-        print(#function)
-        let currentZoom = mapView.zoomLevel
-        mapView.setCenter(mapView.centerCoordinate, zoomLevel: currentZoom - 1, animated: false)
+        mapView.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel - 1, animated: true)
     }
 }
 
@@ -79,4 +72,3 @@ extension ViewController: MKMapViewDelegate {
         MKTileOverlayRenderer(overlay: overlay)
     }
 }
-
