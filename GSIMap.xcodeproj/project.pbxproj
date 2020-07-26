@@ -39,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		125C4ADE24CD7FD600766D23 /* GSITile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSITile.swift; sourceTree = "<group>"; };
+		125C4AE024CD92E700766D23 /* GSIMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GSIMap.entitlements; sourceTree = "<group>"; };
 		1290A8E624CD63C1002FC977 /* GSIMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSIMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1290A8E924CD63C1002FC977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1290A8EB24CD63C1002FC977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		1290A8E824CD63C1002FC977 /* GSIMap */ = {
 			isa = PBXGroup;
 			children = (
+				125C4AE024CD92E700766D23 /* GSIMap.entitlements */,
 				1290A8E924CD63C1002FC977 /* AppDelegate.swift */,
 				1290A8EB24CD63C1002FC977 /* SceneDelegate.swift */,
 				1290A8ED24CD63C1002FC977 /* ViewController.swift */,
@@ -446,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GSIMap/GSIMap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97JN7SJ3KH;
 				INFOPLIST_FILE = GSIMap/Info.plist;
@@ -456,6 +459,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tasshy.GSIMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GSIMap/GSIMap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97JN7SJ3KH;
 				INFOPLIST_FILE = GSIMap/Info.plist;
@@ -475,6 +480,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.tasshy.GSIMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
