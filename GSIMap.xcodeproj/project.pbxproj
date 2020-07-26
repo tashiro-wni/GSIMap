@@ -15,6 +15,8 @@
 		1290A8F624CD63C4002FC977 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1290A8F424CD63C4002FC977 /* LaunchScreen.storyboard */; };
 		1290A90124CD63C5002FC977 /* GSIMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A90024CD63C5002FC977 /* GSIMapTests.swift */; };
 		1290A90C24CD63C5002FC977 /* GSIMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A90B24CD63C5002FC977 /* GSIMapUITests.swift */; };
+		1290A91A24CD6FE6002FC977 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A91924CD6FE6002FC977 /* Utility.swift */; };
+		1290A91C24CD7405002FC977 /* MKMapView+ZoomLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1290A91B24CD7405002FC977 /* MKMapView+ZoomLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		1290A90724CD63C5002FC977 /* GSIMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSIMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1290A90B24CD63C5002FC977 /* GSIMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSIMapUITests.swift; sourceTree = "<group>"; };
 		1290A90D24CD63C5002FC977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1290A91924CD6FE6002FC977 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		1290A91B24CD7405002FC977 /* MKMapView+ZoomLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+ZoomLevel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				1290A8E924CD63C1002FC977 /* AppDelegate.swift */,
 				1290A8EB24CD63C1002FC977 /* SceneDelegate.swift */,
 				1290A8ED24CD63C1002FC977 /* ViewController.swift */,
+				1290A91924CD6FE6002FC977 /* Utility.swift */,
+				1290A91B24CD7405002FC977 /* MKMapView+ZoomLevel.swift */,
 				1290A8EF24CD63C1002FC977 /* Main.storyboard */,
 				1290A8F224CD63C4002FC977 /* Assets.xcassets */,
 				1290A8F424CD63C4002FC977 /* LaunchScreen.storyboard */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1290A91A24CD6FE6002FC977 /* Utility.swift in Sources */,
 				1290A8EE24CD63C1002FC977 /* ViewController.swift in Sources */,
 				1290A8EA24CD63C1002FC977 /* AppDelegate.swift in Sources */,
+				1290A91C24CD7405002FC977 /* MKMapView+ZoomLevel.swift in Sources */,
 				1290A8EC24CD63C1002FC977 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97JN7SJ3KH;
 				INFOPLIST_FILE = GSIMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97JN7SJ3KH;
 				INFOPLIST_FILE = GSIMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
