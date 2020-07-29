@@ -11,6 +11,21 @@ import MapKit
 
 class ViewController: UIViewController {
     private let mapView = MKMapView()
+    private var tileOverlays: [MKOverlay] = []
+    private var overlayType: GSITile = .hillShade {
+        didSet {
+            mapView.removeOverlays(tileOverlays)
+            mapView.addOverlay(overlayType.tileOverlay)
+            tileOverlays = [overlayType.tileOverlay]
+            
+            if mapView.zoomLevel > overlayType.maxZoomLevel {
+                set(zoomLevel: overlayType.maxZoomLevel)
+            }
+            if mapView.zoomLevel < overlayType.minZoomLevel {
+                set(zoomLevel: overlayType.minZoomLevel)
+            }
+        }
+    }
 
     private let buttonSize: CGFloat = 40
     private let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
@@ -41,8 +56,11 @@ class ViewController: UIViewController {
         
         mapView.delegate = self
         mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: [])
-        mapView.addOverlay(GSITile.standard.tileOverlay, level: .aboveLabels)
+        mapView.setCenter(CLLocationCoordinate2DMake(35.6812405, 139.7649361), animated: false)
         view.addSubview(mapView)
+     
+        mapView.addOverlay(overlayType.tileOverlay)
+        tileOverlays = [ overlayType.tileOverlay ]
         
         view.addSubview(zoomInButton)
         view.addSubview(zoomOutButton)
@@ -60,12 +78,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func zoomInAction(_ sender: UIButton) {
-        guard mapView.zoomLevel < 18 else { return }
-        mapView.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel + 1, animated: true)
+        //guard mapView.zoomLevel < overlayType.maxZoomLevel else { return }
+        set(zoomLevel: mapView.zoomLevel + 1)
     }
     
     @IBAction private func zoomOutAction(_ sender: UIButton) {
-        mapView.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel - 1, animated: true)
+        //guard mapView.zoomLevel > overlayType.minZoomLevel else { return }
+        set(zoomLevel: mapView.zoomLevel - 1)
+    }
+    
+    private func set(zoomLevel: UInt) {
+        let newLevel = min(overlayType.maxZoomLevel, max(overlayType.minZoomLevel, zoomLevel))
+        guard newLevel != mapView.zoomLevel else { return }
+        LOG("new zoomLevel:\(newLevel), center:\(mapView.centerCoordinate)")
+        mapView.setCenter(mapView.centerCoordinate, zoomLevel: newLevel, animated: true)
     }
 }
 

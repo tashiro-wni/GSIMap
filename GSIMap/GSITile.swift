@@ -49,4 +49,47 @@ enum GSITile {
             return baseUrl + "/lcmfc2/{z}/{x}/{y}.png"
         }
     }
+    
+    var maxZoomLevel: UInt {
+        switch self {
+        case .standard, .pale:
+            return 18
+        case .english:
+            return 11
+        case .lcm25k:
+            return 16
+        case .photo:
+            return 14
+        case .ortho:
+            return 18
+        case .relief:
+            return 15
+        case .hillShade:
+            return 16
+        case .floodControl:
+            return 16
+        }
+    }
+    
+    var minZoomLevel: UInt {
+        switch self {
+        case .standard, .pale:
+            return 5
+        case .english:
+            return 5
+        case .lcm25k:
+            return 10
+        case .photo:
+            return 2
+        case .ortho:
+            return 14
+        case .relief:
+            return 5
+        case .hillShade:
+            return 2
+        case .floodControl:
+            return 11
+        }
+    }
+
 }
