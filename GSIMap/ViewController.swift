@@ -40,7 +40,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         mapView.delegate = self
-        mapView.addOverlay(GSITile.ortho.tileOverlay, level: .aboveLabels)
+        mapView.pointOfInterestFilter = MKPointOfInterestFilter(including: [])
+        mapView.addOverlay(GSITile.standard.tileOverlay, level: .aboveLabels)
         view.addSubview(mapView)
         
         view.addSubview(zoomInButton)
@@ -59,6 +60,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func zoomInAction(_ sender: UIButton) {
+        guard mapView.zoomLevel < 18 else { return }
         mapView.setCenter(mapView.centerCoordinate, zoomLevel: mapView.zoomLevel + 1, animated: true)
     }
     

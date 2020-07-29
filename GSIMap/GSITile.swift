@@ -20,7 +20,9 @@ enum GSITile {
     case floodControl  // 治水地形分類図          zoomLevel 11-16
     
     var tileOverlay: MKTileOverlay {
-        MKTileOverlay(urlTemplate: urlTemplate)
+        let overlay = MKTileOverlay(urlTemplate: urlTemplate)
+        overlay.canReplaceMapContent = true
+        return overlay
     }
     
     var urlTemplate: String {
@@ -28,7 +30,7 @@ enum GSITile {
         
         switch self {
         case .standard:
-            return baseUrl + "/relief/{z}/{x}/{y}.png"
+            return baseUrl + "/std/{z}/{x}/{y}.png"
         case .pale:
             return baseUrl + "/pale/{z}/{x}/{y}.png"
         case .english:
